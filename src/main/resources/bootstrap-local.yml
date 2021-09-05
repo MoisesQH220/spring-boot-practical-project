@@ -1,0 +1,27 @@
+server:
+  servlet:
+    context-path: ${application.jarvis.api.path}
+  port: 8083
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: ${application.jarvis.api.path}/swagger/swagger2.json
+management:
+  endpoints:
+    web:
+      base-path: ${application.jarvis.api.path}/actuator
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/dev_database
+    username: perudev2021
+    password: perudev2021$
+    driverClassName: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+encrypt:
+  key: 294979e512cb8e79370dabecadc3fcbb849e78d2d6bd2049

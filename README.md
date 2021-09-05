@@ -1,3 +1,3 @@
-# Spring Boot Practical Project
+# spring-boot-practical-project
 
-Microservicio para consulta de información de clientes
+Microservicio para consulta de información

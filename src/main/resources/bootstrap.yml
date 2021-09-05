@@ -1,0 +1,20 @@
+application:
+  jarvis:
+    api:
+      path: /api/clients
+
+spring:
+  application:
+    name: spring-boot-practical-project
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    default-property-inclusion: non_null
+
+info:
+  project:
+    version: 1.0.0
+    title: Spring Boot Practical Project
+    description: Microservicio para consultar la información de clientes de Telefónica del Perú
+
+
