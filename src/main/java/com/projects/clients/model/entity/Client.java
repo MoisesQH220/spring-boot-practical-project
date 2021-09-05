@@ -35,7 +35,7 @@ public class Client implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "Id", nullable = false)
-  private Integer id;
+  private Long id;
   
   @Column(name = "full_name", nullable = false)
   private String fullName;

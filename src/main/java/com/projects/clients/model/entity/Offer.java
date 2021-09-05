@@ -29,7 +29,7 @@ public class Offer implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "Id", nullable = false)
-  private Integer id;
+  private Long id;
   
   @Column(name = "code", nullable = false)
   private String code;

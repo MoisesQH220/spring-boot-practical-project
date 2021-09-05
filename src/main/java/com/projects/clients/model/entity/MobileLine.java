@@ -35,10 +35,10 @@ public class MobileLine implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "Id", nullable = false)
-  private Integer id;
+  private Long id;
   
-  @Column(name = "phone_number", nullable = false)
-  private String phoneNumber;
+  @Column(name = "cell_phone_number", nullable = false)
+  private String cellPhoneNumber;
   
   @Column(name = "status", nullable = false)
   private String status;
