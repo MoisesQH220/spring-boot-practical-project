@@ -21,7 +21,7 @@ public class ClientServiceImpl implements ClientService {
   private static final Logger logger = LogManager.getLogger(ClientService.class);
   
   @Override
-  public ClientResponse findPersonInformation(String documentType, String documentNumber) {
+  public ClientResponse findClientInformation(String documentType, String documentNumber) {
     Client client = clientRepository.findByDocumentTypeAndDocumentNumber(documentType, documentNumber);
     if (Objects.isNull(client)) {
       throw new ErrorException("Not found person.");
@@ -29,8 +29,5 @@ public class ClientServiceImpl implements ClientService {
     logger.info("Customer information was found.");
     return ClientBuilder.toClientResponse(client);
   }
-  
-  
-  
   
 }
