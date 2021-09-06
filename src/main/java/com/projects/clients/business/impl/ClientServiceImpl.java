@@ -30,5 +30,4 @@ public class ClientServiceImpl implements ClientService {
     return ClientBuilder.toClientResponse(client);
   }
   
-  
 }

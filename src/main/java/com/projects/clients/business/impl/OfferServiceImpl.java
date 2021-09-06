@@ -30,5 +30,4 @@ public class OfferServiceImpl implements OfferService {
     return OfferBuilder.toOfferResponse(offer);
   }
   
-  
 }
