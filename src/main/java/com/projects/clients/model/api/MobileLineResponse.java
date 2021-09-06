@@ -31,7 +31,7 @@ public class MobileLineResponse implements Serializable {
   @ApiModelProperty(value = "Nombre de plan de línea móvil", example = "1999-02-21 00:00:00", position = 4)
   private String planName;
   
-  @ApiModelProperty(value = "Lista de ofertas de línea móvil", example = "'1'", position = 5)
+  @ApiModelProperty(value = "Lista de ofertas de línea móvil", position = 5)
   private List<OfferResponse> offers;
   
 }

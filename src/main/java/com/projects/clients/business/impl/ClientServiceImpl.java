@@ -14,11 +14,10 @@ import org.springframework.stereotype.Service;
 public class ClientServiceImpl implements ClientService {
   
   private final ClientRepository clientRepository;
-  private final ClientBuilder clientBuilder;
   
   @Override
   public ClientResponse findPersonInformation(String documentType, String documentNumber) {
-    return clientBuilder.toClientResponse(clientRepository.findByDocumentTypeAndDocumentNumber(documentType, documentNumber));
+    return ClientBuilder.toClientResponse(clientRepository.findByDocumentTypeAndDocumentNumber(documentType, documentNumber));
   }
   
 }

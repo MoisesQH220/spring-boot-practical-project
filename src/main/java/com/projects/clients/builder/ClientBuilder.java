@@ -5,17 +5,18 @@ import com.projects.clients.model.api.MobileLineResponse;
 import com.projects.clients.model.api.OfferResponse;
 import com.projects.clients.model.entity.Client;
 import com.projects.clients.model.entity.MobileLine;
-import org.springframework.stereotype.Component;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.projects.util.DateUtil.toFormatDate;
+import static lombok.AccessLevel.PRIVATE;
 
-@Component
+@NoArgsConstructor(access = PRIVATE)
 public class ClientBuilder {
   
-  public ClientResponse toClientResponse(Client client) {
+  public static ClientResponse toClientResponse(Client client) {
     return ClientResponse
       .builder()
       .fullName(client.getFullName())
@@ -26,7 +27,7 @@ public class ClientBuilder {
       .build();
   }
   
-  private List<MobileLineResponse> toClientMobileLines(Client client) {
+  private static List<MobileLineResponse> toClientMobileLines(Client client) {
     return client.getMobileLines().stream()
       .map(mobileLine -> MobileLineResponse.builder()
         .cellPhoneNumber(mobileLine.getCellPhoneNumber())
@@ -38,7 +39,7 @@ public class ClientBuilder {
       .collect(Collectors.toList());
   }
   
-  private List<OfferResponse> toOffers(MobileLine mobileLine) {
+  private static List<OfferResponse> toOffers(MobileLine mobileLine) {
     return mobileLine.getOffers().stream()
       .map(offer -> OfferResponse.builder()
         .code(offer.getCode())

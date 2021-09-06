@@ -31,7 +31,7 @@ public class ClientController {
   
   @GetMapping(value = "/clients",
     produces = {MediaType.APPLICATION_STREAM_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
-  @ApiOperation(value = GET_CLIENT_DESC, response = ClientResponse.class, httpMethod = GET, notes = CLIENT_CLASSPATH)
+  @ApiOperation(value = GET_CLIENT_DESC, response = ClientResponse.class, httpMethod = GET)
   public ClientResponse getPersonInformation(@RequestParam(name = "documentType") String documentType,
                                              @RequestParam(name = "documentNumber") String documentNumber) {
     return clientService.findPersonInformation(documentType, documentNumber);

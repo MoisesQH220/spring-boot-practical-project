@@ -9,7 +9,6 @@ public final class Constants {
   public static final String MS_TAG_NAME = "Clients";
   public static final String MS_TAG_DESC = "Gestiona la información de los clientes de Telefónica del Perú";
   public static final String GET = "GET";
-  public static final String CLIENT_CLASSPATH = "classpath:swagger/notes/api-get-clients.md";
 
   public static final String REG_DOC_TYPE = "[0-9]{1,1}";
   public static final String REG_DOC_NUM = "[0-9]{8,12}";
