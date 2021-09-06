@@ -1,10 +1,14 @@
 package com.projects.clients.business.impl;
 
 import com.projects.clients.builder.ClientBuilder;
+import com.projects.clients.builder.OfferBuilder;
 import com.projects.clients.business.ClientService;
+import com.projects.clients.business.OfferService;
 import com.projects.clients.model.api.ClientResponse;
+import com.projects.clients.model.api.OfferResponse;
 import com.projects.clients.model.entity.Client;
 import com.projects.clients.repository.ClientRepository;
+import com.projects.clients.repository.OfferRepository;
 import com.projects.config.exception.ErrorException;
 import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -15,19 +19,15 @@ import java.util.Objects;
 
 @AllArgsConstructor
 @Service
-public class ClientServiceImpl implements ClientService {
+public class OfferServiceImpl implements OfferService {
   
-  private final ClientRepository clientRepository;
-  private static final Logger logger = LogManager.getLogger(ClientService.class);
+  private final OfferRepository offerRepository;
+  private static final Logger logger = LogManager.getLogger(OfferService.class);
+  
   
   @Override
-  public ClientResponse findClientInformation(String documentType, String documentNumber) {
-    Client client = clientRepository.findByDocumentTypeAndDocumentNumber(documentType, documentNumber);
-    if (Objects.isNull(client)) {
-      throw new ErrorException("Not found person.");
-    }
-    logger.info("Customer information was found.");
-    return ClientBuilder.toClientResponse(client);
+  public OfferResponse findByStartDateAndEndDate(String startDate, String endDate) {
+    return OfferBuilder.toOfferResponse(offerRepository.findByStartDateAndEndDate(startDate, endDate));
   }
   
   
