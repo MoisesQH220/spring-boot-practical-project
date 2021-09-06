@@ -11,10 +11,13 @@ import org.hibernate.annotations.FetchMode;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -41,10 +44,12 @@ public class MobileLine implements Serializable {
   private String cellPhoneNumber;
   
   @Column(name = "status", nullable = false)
-  private String status;
+  @Enumerated(EnumType.STRING)
+  private Status status;
   
   @Column(name = "type", nullable = false)
-  private String type;
+  @Enumerated(EnumType.STRING)
+  private Type type;
   
   @Column(name = "plan_name")
   private String planName;
@@ -61,8 +66,11 @@ public class MobileLine implements Serializable {
   @Column(name = "username_update")
   private String usernameUpdate;
   
-  @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "mobileLine", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @Fetch(FetchMode.SUBSELECT)
   private List<Offer> offers;
+  
+  @ManyToOne(fetch = FetchType.LAZY)
+  private Client client;
   
 }

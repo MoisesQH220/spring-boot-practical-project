@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import static com.projects.util.Constants.CLIENT_CLASSPATH;
@@ -19,7 +20,7 @@ import static com.projects.util.Constants.MS_TAG_DESC;
 import static com.projects.util.Constants.MS_TAG_NAME;
 
 @RestController
-@RequestMapping("${application.jarvis.api.path}")
+@RequestMapping("api/v1.0")
 @Api(tags = MS_TAG_NAME, description = MS_TAG_DESC)
 @Validated
 @Slf4j
@@ -30,12 +31,9 @@ public class ClientController {
   
   @GetMapping(value = "/clients",
     produces = {MediaType.APPLICATION_STREAM_JSON_VALUE, MediaType.APPLICATION_JSON_VALUE})
-  @ApiOperation(
-    value = GET_CLIENT_DESC,
-    response = ClientResponse.class,
-    httpMethod = GET,
-    notes = CLIENT_CLASSPATH)
-  public ClientResponse getPersonInformation(String documentType, String documentNumber) {
+  @ApiOperation(value = GET_CLIENT_DESC, response = ClientResponse.class, httpMethod = GET, notes = CLIENT_CLASSPATH)
+  public ClientResponse getPersonInformation(@RequestParam(name = "documentType") String documentType,
+                                             @RequestParam(name = "documentNumber") String documentNumber) {
     return clientService.findPersonInformation(documentType, documentNumber);
   }
   

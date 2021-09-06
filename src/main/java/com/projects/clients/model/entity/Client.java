@@ -27,7 +27,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "\"Client\"")
+@Table(name = "\"client\"")
 public class Client implements Serializable {
   
   private static final long serialVersionUID = 5491943028700542523L;
@@ -61,7 +61,7 @@ public class Client implements Serializable {
   @Column(name = "username_update")
   private String usernameUpdate;
   
-  @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   @Fetch(FetchMode.SUBSELECT)
   private List<MobileLine> mobileLines;
   

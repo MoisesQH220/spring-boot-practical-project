@@ -5,14 +5,14 @@ import com.projects.clients.model.api.MobileLineResponse;
 import com.projects.clients.model.api.OfferResponse;
 import com.projects.clients.model.entity.Client;
 import com.projects.clients.model.entity.MobileLine;
-import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static lombok.AccessLevel.PRIVATE;
+import static com.projects.util.DateUtil.toFormatDate;
 
-@NoArgsConstructor(access = PRIVATE)
+@Component
 public class ClientBuilder {
   
   public ClientResponse toClientResponse(Client client) {
@@ -21,7 +21,7 @@ public class ClientBuilder {
       .fullName(client.getFullName())
       .documentType(client.getDocumentType())
       .documentNumber(client.getDocumentNumber())
-      .birthDate(client.getBirthDate())
+      .birthDate(toFormatDate(client.getBirthDate()))
       .mobileLines(toClientMobileLines(client))
       .build();
   }
@@ -30,8 +30,8 @@ public class ClientBuilder {
     return client.getMobileLines().stream()
       .map(mobileLine -> MobileLineResponse.builder()
         .cellPhoneNumber(mobileLine.getCellPhoneNumber())
-        .status(mobileLine.getStatus())
-        .type(mobileLine.getType())
+        .status(String.valueOf(mobileLine.getStatus()))
+        .type(String.valueOf(mobileLine.getType()))
         .planName(mobileLine.getPlanName())
         .offers(toOffers(mobileLine))
         .build())
@@ -43,8 +43,8 @@ public class ClientBuilder {
       .map(offer -> OfferResponse.builder()
         .code(offer.getCode())
         .description(offer.getDescription())
-        .startDate(offer.getStartDate())
-        .endDate(offer.getEndDate())
+        .startDate(toFormatDate(offer.getStartDate()))
+        .endDate(toFormatDate(offer.getEndDate()))
         .build())
       .collect(Collectors.toList());
   }
