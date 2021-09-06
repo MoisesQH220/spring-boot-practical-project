@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.projects.util.Constants.CLIENT_CLASSPATH;
 import static com.projects.util.Constants.GET;
 import static com.projects.util.Constants.GET_CLIENT_DESC;
 import static com.projects.util.Constants.MS_TAG_DESC;
