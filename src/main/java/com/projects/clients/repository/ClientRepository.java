@@ -10,5 +10,4 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ClientRepository extends JpaRepository<Client, Long> {
   
   Client findByDocumentTypeAndDocumentNumber(String documentType, String documentNumber);
-  
 }

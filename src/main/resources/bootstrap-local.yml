@@ -15,8 +15,8 @@ management:
 spring:
   datasource:
     url: jdbc:mariadb://localhost:3306/dev_database
-    username: perudev2021
-    password: perudev2021$
+    username: root
+    password: perudev2021!
     driverClassName: org.mariadb.jdbc.Driver
   jpa:
     show-sql: true
