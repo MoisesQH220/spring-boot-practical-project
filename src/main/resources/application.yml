@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: spring-boot-practical-project
+  main:
+    allow-bean-definition-overriding: true
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:mariadb://localhost:3306/dev_database
+    username: root
+    password: perudev2021!
+    driverClassName: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+info:
+  project:
+    version: 1.0.0
+    title: Spring Boot Practical Project
+    description: Microservicio para consultar la información de clientes de Telefónica del Perú
+
+server:
+  port: 8080
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api/v1.0/swagger/swagger2.json
