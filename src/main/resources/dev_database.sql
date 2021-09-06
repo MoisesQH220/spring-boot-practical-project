@@ -15,14 +15,16 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE SCHEMA IF NOT EXISTS `dev_database` DEFAULT CHARACTER SET latin1 ;
+USE `dev_database` ;
 --
 -- Table structure for table `client`
 --
 
-DROP TABLE IF EXISTS `client`;
+DROP TABLE IF EXISTS `dev_database`.`client`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `client` (
+CREATE TABLE `dev_database`.`client` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `full_name` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `document_type` varchar(20) NOT NULL,
@@ -41,9 +43,9 @@ CREATE TABLE `client` (
 -- Dumping data for table `client`
 --
 
-LOCK TABLES `client` WRITE;
+LOCK TABLES `dev_database`.`client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (1,'Luis Alfonso Sarmiento Urrutia','1','2454697','1997-08-15 23:11:15','2021-09-05 23:11:55',NULL,'2021-09-05 23:13:32',NULL),(2,'Maria Sofía Alvarado Quispe','1','2555691','1991-08-15 23:11:15','2021-09-05 23:11:55',NULL,'2021-09-05 23:13:25',NULL);
+INSERT INTO `dev_database`.`client` VALUES (1,'Luis Alfonso Sarmiento Urrutia','1','2454697','1997-08-15 23:11:15','2021-09-05 23:11:55',NULL,'2021-09-05 23:13:32',NULL),(2,'Maria Sofía Alvarado Quispe','1','2555691','1991-08-15 23:11:15','2021-09-05 23:11:55',NULL,'2021-09-05 23:13:25',NULL);
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,10 +53,10 @@ UNLOCK TABLES;
 -- Table structure for table `mobile_line`
 --
 
-DROP TABLE IF EXISTS `mobile_line`;
+DROP TABLE IF EXISTS `dev_database`.`mobile_line`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mobile_line` (
+CREATE TABLE `dev_database`.`mobile_line` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `client_id` bigint NOT NULL,
   `cell_phone_number` varchar(30) NOT NULL,
@@ -75,9 +77,9 @@ CREATE TABLE `mobile_line` (
 -- Dumping data for table `mobile_line`
 --
 
-LOCK TABLES `mobile_line` WRITE;
+LOCK TABLES `dev_database`.`mobile_line` WRITE;
 /*!40000 ALTER TABLE `mobile_line` DISABLE KEYS */;
-INSERT INTO `mobile_line` VALUES (1,1,'987112687','Activo','Postpago','Plan S/ 29.90','2021-09-05 23:32:41',NULL,NULL,NULL),(2,2,'985749137','Activo','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 11:24:34',NULL),(3,1,'987118781','Activo','Postpago','Plan S/. 39.90','2021-09-05 23:32:41',NULL,NULL,NULL),(4,1,'992412873','Cancelado','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 11:01:05',NULL),(5,1,'983134561','Activo','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 10:49:27',NULL),(6,1,'924567621','Activo','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 10:49:27',NULL);
+INSERT INTO `dev_database`.`mobile_line` VALUES (1,1,'987112687','Activo','Postpago','Plan S/ 29.90','2021-09-05 23:32:41',NULL,NULL,NULL),(2,2,'985749137','Activo','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 11:24:34',NULL),(3,1,'987118781','Activo','Postpago','Plan S/. 39.90','2021-09-05 23:32:41',NULL,NULL,NULL),(4,1,'992412873','Cancelado','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 11:01:05',NULL),(5,1,'983134561','Activo','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 10:49:27',NULL),(6,1,'924567621','Activo','Prepago','Plan Prepago','2021-09-05 23:32:41',NULL,'2021-09-06 10:49:27',NULL);
 /*!40000 ALTER TABLE `mobile_line` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,10 +87,10 @@ UNLOCK TABLES;
 -- Table structure for table `offer`
 --
 
-DROP TABLE IF EXISTS `offer`;
+DROP TABLE IF EXISTS `dev_database`.`offer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `offer` (
+CREATE TABLE `dev_database`.`offer` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `mobile_line_id` bigint NOT NULL,
   `code` varchar(30) NOT NULL,
@@ -109,9 +111,9 @@ CREATE TABLE `offer` (
 -- Dumping data for table `offer`
 --
 
-LOCK TABLES `offer` WRITE;
+LOCK TABLES `dev_database`.`offer` WRITE;
 /*!40000 ALTER TABLE `offer` DISABLE KEYS */;
-INSERT INTO `offer` VALUES (1,1,'OF1','Oferta Simple','2021-10-05 23:33:52','2022-02-03 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 11:31:10',NULL),(2,2,'OF1','Oferta Simple','2021-09-05 23:33:52','2022-09-05 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 01:12:14',NULL),(3,3,'OF2','Oferta Megas','2021-09-05 23:33:52','2021-10-10 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 09:55:36',NULL),(4,4,'OF2','Oferta Megas','2021-09-05 23:33:52','2022-01-01 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 09:55:42',NULL),(5,5,'OF1','Oferta Simple','2021-09-05 23:33:52','2021-09-12 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 09:55:53',NULL),(6,6,'OF1','Oferta Simple','2021-09-05 23:33:52','2021-09-11 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 11:03:09',NULL);
+INSERT INTO `dev_database`.`offer` VALUES (1,1,'OF1','Oferta Simple','2021-10-05 23:33:52','2022-02-03 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 11:31:10',NULL),(2,2,'OF1','Oferta Simple','2021-09-05 23:33:52','2022-09-05 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 01:12:14',NULL),(3,3,'OF2','Oferta Megas','2021-09-05 23:33:52','2021-10-10 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 09:55:36',NULL),(4,4,'OF2','Oferta Megas','2021-09-05 23:33:52','2022-01-01 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 09:55:42',NULL),(5,5,'OF1','Oferta Simple','2021-09-05 23:33:52','2021-09-12 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 09:55:53',NULL),(6,6,'OF1','Oferta Simple','2021-09-05 23:33:52','2021-09-11 23:33:55','2021-09-05 23:33:51',NULL,'2021-09-06 11:03:09',NULL);
 /*!40000 ALTER TABLE `offer` ENABLE KEYS */;
 UNLOCK TABLES;
 

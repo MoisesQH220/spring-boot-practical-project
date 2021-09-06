@@ -46,3 +46,6 @@
 2021-09-06T11:49:53.134-0500 INFO Starting SpringBootPracticalProjectApplication using Java 1.8.0_301 on DESKTOP-TRMCR9U with PID 10776 (C:\Users\MOISES\workspace\spring-boot-practical-project\target\classes started by MOISES in C:\Users\MOISES\workspace\spring-boot-practical-project)
 2021-09-06T11:49:53.145-0500 INFO No active profile set, falling back to default profiles: default
 2021-09-06T11:49:58.803-0500 INFO Started SpringBootPracticalProjectApplication in 6.231 seconds (JVM running for 7.341)
+2021-09-06T12:09:52.452-0500 INFO Starting SpringBootPracticalProjectApplication using Java 1.8.0_301 on DESKTOP-TRMCR9U with PID 12716 (C:\Users\MOISES\workspace\spring-boot-practical-project\target\classes started by MOISES in C:\Users\MOISES\workspace\spring-boot-practical-project)
+2021-09-06T12:09:52.462-0500 INFO No active profile set, falling back to default profiles: default
+2021-09-06T12:09:57.973-0500 INFO Started SpringBootPracticalProjectApplication in 6.164 seconds (JVM running for 7.461)
